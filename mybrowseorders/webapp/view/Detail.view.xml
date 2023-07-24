@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="mynamespace.mybrowseorders.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:f="sap.f"
+    xmlns:m="sap.m">
+
+    <f:FlexibleColumnLayout>
+        <f:beginColumnPages>
+            <m:Page title="Hello, World!">
+                <m:content>
+                    <m:Text text="Welcome to the detail view!" />
+                </m:content>
+            </m:Page>
+        </f:beginColumnPages>
+    </f:FlexibleColumnLayout>
+
+</mvc:View>

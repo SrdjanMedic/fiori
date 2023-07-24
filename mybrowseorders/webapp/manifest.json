@@ -44,6 +44,13 @@
     }
   },
   "sap.ui5": {
+    "rootView": {
+      "viewName": "mynamespace.mybrowseorders.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
+
     "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.116.0",
@@ -72,8 +79,20 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
-      }
+        "settings":{
+          "defaultBindingMode": "OneWay",
+          "data": {
+            "titleCount": 0
+          }
+        }
+      },
+      "appView": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				},
+				"preload":true
+			}
     },
     "resources": {
       "css": [
@@ -84,54 +103,49 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
         "async": true,
         "viewPath": "mynamespace.mybrowseorders.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
+        "controlAggregation": "midColumnPages",
+        "controlId": "layout"
       },
       "routes": [
         {
           "name": "RouteMaster",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
-            "TargetMaster"
+            "InitialScreen"
           ]
         },
 
         {
-          "pattern": "Orders/{objectId}/:?query:",
-          "name": "object",
+          "pattern": "Orders/{objectId}",
+          "name": "objectPage",
           "target": [
-              "master",
-              "object"
+             
+              "InitialScreen",
+              "objectPage"
+
           ]
       }
       ],
       "targets": {
-        "TargetMaster": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
+        "InitialScreen": {
+          "viewType": "XML",          
           "viewId": "Master",
-          "viewName": "Master"
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
         },
 
-        "object": {
-          "name": "Detail",
-          "id": "detail",
-          "level": 1,
+        "objectPage": {
+          "viewType": "XML",          
+          "viewId": "detail",
+          "viewName": "Detail",         
           "controlAggregation": "midColumnPages"
       }
       }
-    },
-    "rootView": {
-      "viewName": "mynamespace.mybrowseorders.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
     }
+    
   }
 }

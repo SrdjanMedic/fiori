@@ -7,7 +7,7 @@ sap.ui.define(
   
       return BaseController.extend("mynamespace.mybrowseorders.controller.App", {
         onInit: function () {
-          var oModel = this.getOwnerComponent().getModel("");
+          var oModel = this.getOwnerComponent().getModel();
           this.getView().setModel(oModel);
         }
         

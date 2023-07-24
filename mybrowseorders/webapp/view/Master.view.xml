@@ -9,13 +9,15 @@
                 text="{
 					parts: [
 						'i18n>masterTitleCount',
-						'masterView>/titleCount'
+						'masterViewModel>/titleCount'
 					],
 					formatter: 'jQuery.sap.formatMessage'
 			}"/>
         </semantic:titleHeading>
 
      <semantic:content>
+
+	 
 			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
 			<List
 				id="list"
