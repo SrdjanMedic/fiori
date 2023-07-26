@@ -112,7 +112,7 @@
       },
       "routes": [
         {
-          "name": "RouteMaster",
+          "name": "InitialScreen",
           "pattern": "",
           "target": [
             "InitialScreen"
@@ -120,7 +120,7 @@
         },
 
         {
-          "pattern": "Orders/{objectId}",
+          "pattern": "Orders/{objectId}/:?query:",
           "name": "objectPage",
           "target": [
              
@@ -143,7 +143,23 @@
           "viewId": "detail",
           "viewName": "Detail",         
           "controlAggregation": "midColumnPages"
-      }
+      },
+      "shipping": {
+        "viewType": "XML",  
+        "viewId": "shipping",  
+        "viewName": "Shipping",
+        "parent": "objectPage",
+        "controlId": "iconTabFilterShipping",
+        "controlAggregation": "content"
+    },
+    "processor": {
+        "viewType": "XML",  
+        "viewId": "processor",  
+        "viewName": "Processor",
+        "parent": "objectPage",
+        "controlId": "iconTabFilterProcessor",
+        "controlAggregation": "content"
+    }
       }
     }
     

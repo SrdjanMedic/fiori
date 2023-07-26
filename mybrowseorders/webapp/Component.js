@@ -1,13 +1,10 @@
-/**
- * eslint-disable @sap/ui5-jsdocs/no-jsdoc
- */
-
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "mynamespace/mybrowseorders/model/models"
+        "mynamespace/mybrowseorders/model/models",
+        "./controller/ListSelector"
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models,ListSelector) {
         "use strict";
 
         return UIComponent.extend("mynamespace.mybrowseorders.Component", {
@@ -21,6 +18,11 @@ sap.ui.define([
              * @override
              */
             init: function () {
+
+                this.oListSelector = new ListSelector();
+                
+		
+		
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
@@ -30,6 +32,8 @@ sap.ui.define([
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             }
+
+            
         });
     }
 );
